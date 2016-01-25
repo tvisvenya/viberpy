@@ -25,6 +25,7 @@ def readForEvBack(num, typ):
     db_read.execute('select * from Events where direction = 0 and number = "' + num + '" and type=' + typ + ';')
     return db_read.fetchall()
 
+print "Hello world"
 
 def loadNum():
     db_read = conn.cursor()
