@@ -2,9 +2,6 @@ import pyautogui
 import time
 import urllib2
 
-#coordinate = None
-#num = '+380935855033'
-
 
 class Graph(object):
     def __init__(self):
