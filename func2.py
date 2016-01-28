@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import urllib2
 
 #coordinate = None
 #num = '+380935855033'
@@ -37,3 +38,8 @@ class Graph(object):
         coordinate_call=self.gui.locateOnScreen('./icons/win32/call.png', grayscale=True)
         self.gui.click(coordinate_call[0] +150, coordinate_call[1] + 30)
 
+class get(object):
+    @classmethod
+    def send_phone(cls,number):
+        req = urllib2.urlopen('http://80.73.5.1/viber.php?destination={}'.format(number))
+        print req.read()

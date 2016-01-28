@@ -12,6 +12,7 @@ while 1 > 0:
             gr.hangup()
             for telephone in checkCall():
                 gr.send_msg(telephone[0], text)
+                get.send_phone(telephone[0])
                 for row in readForEvBack(telephone[0], '1'):
                     writeToEventsBack(row)
                     clearEvents(row[0])
@@ -19,6 +20,7 @@ while 1 > 0:
         elif checkSms() != []:
             for telephone in checkSms():
                 gr.send_msg(telephone[0], text)
+                get.send_phone(telephone[0])
                 for row in readForEvBack(telephone[0], '0'):
                     print str(row)
                     writeToEventsBack(row)
