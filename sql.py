@@ -1,7 +1,7 @@
 import sqlite3
 
 #DB = '/home/rosto/.ViberPC/380938481360/viber.db'
-DB = "C:/Users/rosto/AppData/Roaming/ViberPC/380938481360/viber.db"
+DB = 'C:/Users/rosto/AppData/Roaming/ViberPC/380938481360/viber.db'
 
 conn = sqlite3.connect(DB)
 conn.isolation_level = None
@@ -43,3 +43,23 @@ def checkSms():
     db_read = conn.cursor()
     db_read.execute('SELECT DISTINCT(Number) FROM Events WHERE Direction = 0 AND type = 0;')
     return db_read.fetchall()
+
+
+'''
+def crateTable():
+    db_write = conn.cursor()
+    db_write.execute("CREATE TABLE EventsBack \ (
+  \  EventID           INTEGER                   PRIMARY KEY AUTOINCREMENT,'
+  \   TimeStamp         LONGINT                   NOT NULL,
+  \  Direction         [UNSIGNED INTEGER]        NOT NULL,
+  \  Type              SMALLINT                  NOT NULL,
+  \  ContactLongitude  [SIGNED LONG]             DEFAULT 0,
+  \  ContactLatitude   [SIGNED LONG]             DEFAULT 0,
+  \  ChatID            INTEGER                   REFERENCES ChatInfo (ChatID) ON UPDATE CASCADE,
+  \  Number            VARCHAR (30)              REFERENCES PhoneNumber (Number) ON UPDATE CASCADE,
+  \  IsSessionLifeTime [UNSIGNED INTEGER] (0, 1) DEFAULT 0,
+  \  Flags             INTEGER                   DEFAULT 0,
+  \  Token             [UNSIGNED LONG]           NOT NULL,
+  \  IsRead            SMALLINT (0, 1)           NOT NULL
+  \                                                DEFAULT 0);")
+'''
